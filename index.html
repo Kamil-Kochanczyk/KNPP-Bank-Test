@@ -11,11 +11,11 @@
 
     <!-- Własne css -->
     <link href="css/wspolny-styl.css" type="text/css" rel="stylesheet">
-    <link href="css/index-styl.css" type="text/css" rel="stylesheet">
+    <link id="custom-css" href="" type="text/css" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Własne js -->
+    <script src="js/script.js"></script>
     <script src="js/bank-storage.js"></script>
 </head>
 <body>
@@ -43,7 +44,7 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li>
-                <a id="home-button" href="index.html" class="nav-link active" aria-current="page" onclick="changeActive('home-button')">
+                <a id="home-button" href="#" class="nav-link active" aria-current="page" onclick="changeActive('home-button')">
                     <i class="fas fa-home"></i>
                     Strona główna
                 </a>
@@ -55,7 +56,7 @@
                 </a>
             </li>
             <li>
-                <a id="bank-transfers-button" href="html-podstrony/przelewy/przelewy.html" class="nav-link link-dark" onclick="changeActive('bank-transfers-button')">
+                <a id="bank-transfers-button" href="#" class="nav-link link-dark" onclick="changeActive('bank-transfers-button')">
                     <i class="fas fa-exchange-alt"></i>
                     Przelewy
                 </a>
@@ -73,7 +74,7 @@
                 </a>
             </li>
             <li>
-                <a id="tickets-button" href="html-podstrony/bilety/bilety.html" class="nav-link link-dark" onclick="changeActive('tickets-button')">
+                <a id="tickets-button" href="#" class="nav-link link-dark" onclick="changeActive('tickets-button')">
                     <i class="fas fa-ticket-alt"></i>
                     Bilety
                 </a>
@@ -98,68 +99,8 @@
     </header>
 
     <!-- Główna zawartość strony -->
-    <main>
-        <div id="left-column">
-            <div id="account-state" class="homepage-section">
-                <div class="homepage-section-header">Stan konta</div>
-                <div class="tile">
-                    <div id="account-name" class="tile-first-row"></div>
-                    <div id="account-number" class="tile-second-row"></div>
-                    <div id="available-funds" class="tile-third-row"></div>
-                </div>
-            </div>
-            <div id="statistics" class="homepage-section">
-                <div id="statistics-first-row">
-                    <div class="homepage-section-header">Statystyki</div>
-                    <select id="time-period-select" name="time-period" onchange="updateDiagram()">
-                        <option value="week">Poprzedni tydzień</option>
-                        <option value="month">Poprzedni miesiąc</option>
-                        <option value="year">Poprzedni rok</option>
-                    </select>
-                </div>
-                <div id="radio-buttons">
-                    <div class="diagram-type-label-container">
-                        <label for="expenses">Wydatki</label>
-                        <input type="radio" id="expenses" name="diagram-type" value="expenses" checked onchange="updateDiagram()">
-                    </div>
-                    <div class="diagram-type-label-container">
-                        <label for="revenues">Przychody</label>
-                        <input type="radio" id="revenues" name="diagram-type" value="revenues" onchange="updateDiagram()">
-                    </div>
-                </div>
-                <img id="expenses-week" src="obrazki/wydatki-tydzien.png" alt="wydatki-tydzien">
-                <img id="expenses-month" src="obrazki/wydatki-miesiac.png" alt="wydatki-miesiac">
-                <img id="expenses-year" src="obrazki/wydatki-rok.png" alt="wydatki-rok">
-                <img id="revenues-week" src="obrazki/przychody-tydzien.png" alt="przychody-tydzien">
-                <img id="revenues-month" src="obrazki/przychody-miesiac.png" alt="przychody-miesiac">
-                <img id="revenues-year" src="obrazki/przychody-rok.png" alt="przychody-rok">
-            </div>
-        </div>
-        <div id="right-column">
-            <div id="transactions" class="homepage-section">
-                <div class="homepage-section-header">Transakcje</div>
-                <div id="transaction-list">
-                    <div id="transaction-top" class="tile">
-                        <div class="tile-first-row"></div>
-                        <div class="tile-second-row"></div>
-                        <div class="tile-third-row"></div>
-                    </div>
-                    <div id="transaction-middle" class="tile">
-                        <div class="tile-first-row"></div>
-                        <div class="tile-second-row"></div>
-                        <div class="tile-third-row"></div>
-                    </div>
-                    <div id="transaction-bottom" class="tile">
-                        <div class="tile-first-row"></div>
-                        <div class="tile-second-row"></div>
-                        <div class="tile-third-row"></div>
-                    </div>
-                </div>
-                <div id="button-container">
-                    <a id="more-transactions-button" href="#" class="blue-button" type="button">Więcej</a>
-                </div>
-            </div>
-        </div>
+    <main id="main">
+
     </main>
 
     <!-- Stopka strony -->
@@ -204,73 +145,41 @@
         });
     </script>
     <script>
-        let name = "expenses-week";
-
-        function updateDiagram() {
-            const timePeriod = document.getElementById("time-period-select").value;
-            const diagramType = document.querySelector('input[name="diagram-type"]:checked').value;
-    
-            document.getElementById(name).style.display = "none";
-
-            name = `${diagramType}-${timePeriod}`;
-            document.getElementById(name).style.display = "block";
-        }
-    
-        window.onload = (() => {
-            document.getElementById("expenses-week").style.display = "block";
-            document.getElementById("expenses-month").style.display = "none";
-            document.getElementById("expenses-year").style.display = "none";
-            document.getElementById("revenues-week").style.display = "none";
-            document.getElementById("revenues-month").style.display = "none";
-            document.getElementById("revenues-year").style.display = "none";
-        });
-    </script>
-    <script>
-        function fillMissingContent() {
-            const accountName = BankStorage.getAccountName();
-            const accountNumber = BankStorage.getAccountNumber();
-            const availableFunds = BankStorage.getAvailableFunds();
-            const transactions = BankStorage.getTransactions();
-            const lastThree = transactions.slice(-3).reverse();
-
-            const accountNameDiv = document.getElementById('account-name');
-            const accountNumberDiv = document.getElementById('account-number');
-            const availableFundsDiv = document.getElementById('available-funds');
-            const transactionDivIDs = ['transaction-top', 'transaction-middle', 'transaction-bottom'];
-            const rowClasses = ['tile-first-row', 'tile-second-row', 'tile-third-row'];
-
-            accountNameDiv.innerHTML = accountName;
-            accountNumberDiv.innerHTML = shortFormatAccNum(accountNumber);
-            availableFundsDiv.innerHTML = formatMoney(availableFunds);
-
-            for (let i = 0; i < 3; i++) {
-                const transaction = lastThree[i];
-
-                const firstRow = document.querySelector(`#${transactionDivIDs[i]} .${rowClasses[0]}`);
-                const secondRow = document.querySelector(`#${transactionDivIDs[i]} .${rowClasses[1]}`);
-                const thirdRow = document.querySelector(`#${transactionDivIDs[i]} .${rowClasses[2]}`);
-
-                firstRow.innerHTML = transaction.title;
-                secondRow.innerHTML = transaction.date;
-                thirdRow.innerHTML = formatMoney(transaction.amount);
-            }
+        let diagramName = "expenses-week";
+        let firstTime;
+        const errorMessage1 = 'Nieprawidłowe dane';
+        const errorMessage2 = 'Brak wystarczających środków na koncie';
+        const errorMessage3 = 'Przekroczono limit znaków';
+        
+        function loadHomePage() {
+            $('#custom-css').attr('href', 'css/strona-glowna-styl.css');
+            $('#main').load('html-podstrony/strona-glowna.html', () => {
+                initializeDiagrams();
+                initializeHomePage();
+            });
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            let accountName = BankStorage.getAccountName();
+        function loadBankTransfers() {
+            $('#custom-css').attr('href', 'css/przelewy/przelewy-styl.css');
+            $('#main').load('html-podstrony/przelewy/przelewy.html', () => {
+                initializeForm();
+            });
+        }
 
-            if (accountName === null) {
-                BankStorage.initialize();
-            }
-
-            fillMissingContent();
+        $(document).ready(() => {
+            loadHomePage();
         });
 
-        document.getElementById('bank-transfers-button').addEventListener('click', () => {
+        $('#home-button').click(() => {
+            loadHomePage();
+        });
+
+        $('#bank-transfers-button').click(() => {
             BankStorage.removePendingBankTransfer();
+            loadBankTransfers();
         });
-
-        document.getElementById('logout-button').addEventListener('click', () => {
+        
+        $('#logout-button').click(() => {
             BankStorage.clear();
         });
     </script>
