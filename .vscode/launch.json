@@ -6,7 +6,7 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "file": "${workspaceFolder}/bank/index.html"
+            "file": "${workspaceFolder}/index.html"
         }
     ]
 }
