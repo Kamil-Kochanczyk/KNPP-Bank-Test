@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Własne js -->
-    <script src="js/script.js"></script>
     <script src="js/bank-storage.js"></script>
 </head>
 <body>
@@ -94,7 +93,7 @@
     <!-- Nagłówek strony -->
     <header id="page-header">
         <div id="open-navigation-button">&#9776;</div>
-        <h1>Strona główna</h1>
+        <h1 id="h1-header"></h1>
         <img src="obrazki/bank-logo.png" alt="logo">
     </header>
 
@@ -152,6 +151,7 @@
         const errorMessage3 = 'Przekroczono limit znaków';
         
         function loadHomePage() {
+            $('#h1-header').html('Strona główna');
             $('#custom-css').attr('href', 'css/strona-glowna-styl.css');
             $('#main').load('html-podstrony/strona-glowna.html', () => {
                 initializeDiagrams();
@@ -160,6 +160,7 @@
         }
 
         function loadBankTransfers() {
+            $('#h1-header').html('Przelewy');
             $('#custom-css').attr('href', 'css/przelewy/przelewy-styl.css');
             $('#main').load('html-podstrony/przelewy/przelewy.html', () => {
                 initializeForm();

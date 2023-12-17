@@ -307,6 +307,7 @@
     });
 
     function loadTransferConfirmation() {
+        $('#h1-header').html('Zatwierdź poprawność danych');
         $('#custom-css').attr('href', 'css/przelewy/zatwierdzenie-przelewu-styl.css');
         $('#main').load('html-podstrony/przelewy/zatwierdzenie-przelewu.html', () => {
             initializeConfirmationTile();

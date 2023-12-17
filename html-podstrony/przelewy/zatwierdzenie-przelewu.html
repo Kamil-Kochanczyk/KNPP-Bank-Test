@@ -59,6 +59,7 @@
     };
 
     function loadTransferDone() {
+        $('#h1-header').html('');
         $('#custom-css').attr('href', 'css/przelewy/przelew-wykonany-styl.css');
         $('#main').load('html-podstrony/przelewy/przelew-wykonany.html', () => {
             
