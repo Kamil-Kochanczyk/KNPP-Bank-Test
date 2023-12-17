@@ -7,10 +7,6 @@
 </div>
 <script>
     $('go-home-button').click(() => {
-        $('#custom-css').attr('href', 'css/strona-glowna-styl.css');
-        $('#main').load('html-podstrony/strona-glowna.html', () => {
-            initializeDiagrams();
-            initializeHomePage();
-        });
+        loadHomePage();
     });
 </script>
