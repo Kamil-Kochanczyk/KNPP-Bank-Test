@@ -173,11 +173,11 @@
         currentDate.setHours(0, 0, 0, 0);
 
         if (dateInputField.value === '' || inputDate < currentDate) {
+            dateErrorBox.innerHTML = errorMessage1;
             dateErrorBox.style.display = 'block';
             dateInputField.classList.add('wrong-input');
         }
         else {
-            dateErrorBox.innerHTML = errorMessage1;
             dateErrorBox.style.display = 'none';
             dateInputField.classList.remove('wrong-input');
         }
