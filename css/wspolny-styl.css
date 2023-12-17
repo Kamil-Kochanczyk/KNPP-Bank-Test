@@ -16,6 +16,10 @@ body {
     background: forestgreen;
 } */
 
+a {
+    cursor: pointer;
+}
+
 #curtain {
     display: none;
     width: 100vw;
